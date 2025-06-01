@@ -3,7 +3,7 @@ from typing import Optional
 
 
 class User:
-    """Represents a user in the system."""
+    
    
     def __init__(self, id: int, email: str, first_name: str, last_name: str, role: str = 'citizen'):
         self.id = id
@@ -24,7 +24,7 @@ class User:
 
 
 class Category:
-    """Represents a report category."""
+    
    
     def __init__(self, id: int, name: str):
         self.id = id
@@ -32,7 +32,7 @@ class Category:
 
 
 class Report:
-    """Represents an incident report."""
+
    
     def __init__(self, id: int, user_id: int, category_id: int, title: str,
                  description: str, location: str, status: str = 'pending',
@@ -48,7 +48,7 @@ class Report:
 
 
 class ReportUpdate:
-    """Represents an update to a report."""
+    
    
     def __init__(self, id: int, report_id: int, updated_by: int, comment: str, created_at: str = None):
         self.id = id
