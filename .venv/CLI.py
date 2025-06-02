@@ -1,4 +1,3 @@
-
 from typing import Optional
 from database import Database
 from services import UserService, CategoryService, ReportService
