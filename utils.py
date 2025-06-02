@@ -20,7 +20,7 @@ def get_role_emoji(role: str) -> str:
     """Get emoji for user role."""
     emoji_map = {
         'admin': '👑',
-        'moderator': '🛡️',
+        'moderator': '🛡️', 
         'citizen': '👤'
     }
     return emoji_map.get(role, '👤')
