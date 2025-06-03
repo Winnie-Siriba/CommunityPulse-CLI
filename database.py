@@ -84,8 +84,8 @@ class Database:
         # Add default users
         users_data = [
             ('admin@community.com', 'Admin', 'User', 'admin'),
-            ('john.doe@email.com', 'John', 'Doe', 'citizen'),
-            ('jane.smith@email.com', 'Jane', 'Smith', 'moderator'),
+            ('john.doe@email.com', 'John', 'Makau', 'citizen'),
+            ('jane.smith@email.com', 'Winnie', 'Siriba', 'moderator'),
         ]
        
         cursor.executemany(
