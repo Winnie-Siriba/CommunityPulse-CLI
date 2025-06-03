@@ -66,8 +66,8 @@ The application will automatically create the SQLite database and populate it wi
 
 2. **Select a user** (simplified login):
    - Admin User (admin@community.com) - Full access
-   - John Doe (john.doe@email.com) - Citizen
-   - Jane Smith (jane.smith@email.com) - Moderator
+   - John Makau (john.Makau@email.com) - Citizen
+   - Winnie Siriba(winnie.siriba@email.com) - Moderator
 
 3. **Navigate the menu**:
    - View all reports
