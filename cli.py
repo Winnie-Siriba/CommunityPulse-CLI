@@ -54,9 +54,9 @@ class CommunityPulseCLI:
         if self.current_user:
             print(f"👤 Logged in as: {self.current_user.full_name} ({self.current_user.role})")
         else:
-            print("👤 Not logged in (using simplified mode)")
+            print("👤 Not logged in")
        
-        print("\n1. Select User (Simplified Login)")
+        print("\n1. Select User")
         print("2. View All Reports")
         print("3. Create New Report")
         print("4. Search Reports")
