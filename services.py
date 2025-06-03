@@ -4,13 +4,12 @@ from models import User, Category, Report, ReportUpdate
 
 
 class UserService:
-    """Handles user-related operations."""
-   
+
     def __init__(self, db: Database):
         self.db = db
    
     def get_all_users(self) -> List[User]:
-        """Get all users from the database."""
+        
         conn = self.db.get_connection()
         cursor = conn.cursor()
         cursor.execute("SELECT * FROM users")
@@ -21,7 +20,7 @@ class UserService:
                 for row in rows]
    
     def get_user_by_id(self, user_id: int) -> Optional[User]:
-        """Get a user by ID."""
+        
         conn = self.db.get_connection()
         cursor = conn.cursor()
         cursor.execute("SELECT * FROM users WHERE id = ?", (user_id,))
@@ -33,7 +32,7 @@ class UserService:
         return None
    
     def create_user(self, email: str, first_name: str, last_name: str, role: str = 'citizen') -> User:
-        """Create a new user."""
+        
         conn = self.db.get_connection()
         cursor = conn.cursor()
         cursor.execute(
@@ -54,7 +53,7 @@ class CategoryService:
         self.db = db
    
     def get_all_categories(self) -> List[Category]:
-        """Get all categories from the database."""
+        
         conn = self.db.get_connection()
         cursor = conn.cursor()
         cursor.execute("SELECT * FROM categories ORDER BY name")
@@ -64,7 +63,7 @@ class CategoryService:
         return [Category(row['id'], row['name']) for row in rows]
    
     def create_category(self, name: str) -> Category:
-        """Create a new category."""
+        
         conn = self.db.get_connection()
         cursor = conn.cursor()
         cursor.execute("INSERT INTO categories (name) VALUES (?)", (name,))
@@ -76,13 +75,13 @@ class CategoryService:
 
 
 class ReportService:
-    """Handles report-related operations."""
+    
    
     def __init__(self, db: Database):
         self.db = db
    
     def get_all_reports(self) -> List[Tuple[Report, str, str]]:
-        """Get all reports with category and user information."""
+        
         conn = self.db.get_connection()
         cursor = conn.cursor()
         cursor.execute('''
@@ -105,7 +104,7 @@ class ReportService:
         return results
    
     def get_reports_by_user(self, user_id: int) -> List[Tuple[Report, str]]:
-        """Get reports by a specific user."""
+        
         conn = self.db.get_connection()
         cursor = conn.cursor()
         cursor.execute('''
@@ -129,7 +128,7 @@ class ReportService:
    
     def create_report(self, user_id: int, category_id: int, title: str,
                      description: str, location: str) -> Report:
-        """Create a new report."""
+        
         conn = self.db.get_connection()
         cursor = conn.cursor()
         cursor.execute('''
@@ -143,7 +142,7 @@ class ReportService:
         return Report(report_id, user_id, category_id, title, description, location, 'pending')
    
     def update_report_status(self, report_id: int, status: str) -> bool:
-        """Update the status of a report."""
+        
         conn = self.db.get_connection()
         cursor = conn.cursor()
         cursor.execute("UPDATE reports SET status = ? WHERE id = ?", (status, report_id))
@@ -153,7 +152,7 @@ class ReportService:
         return success
    
     def search_reports(self, search_term: str) -> List[Tuple[Report, str, str]]:
-        """Search reports by title, description, or location."""
+        
         conn = self.db.get_connection()
         cursor = conn.cursor()
         cursor.execute('''
@@ -177,7 +176,7 @@ class ReportService:
         return results
    
     def add_report_update(self, report_id: int, updated_by: int, comment: str) -> ReportUpdate:
-        """Add an update/comment to a report."""
+        
         conn = self.db.get_connection()
         cursor = conn.cursor()
         cursor.execute('''
